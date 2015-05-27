@@ -1,4 +1,3 @@
-trip_id,duration,start_date,start_station,start_terminal,end_date,end_station,end_terminal,bike_num,subscription_type,zip_code
 21915,1367,2013-09-15 00:12:00,Grant Avenue at Columbus Avenue,73,2013-09-15 00:35:00,2nd at Folsom,62,292,Customer,94111
 21916,1246,2013-09-15 00:14:00,Grant Avenue at Columbus Avenue,73,2013-09-15 00:35:00,2nd at Folsom,62,568,Customer,94105
 21917,237060,2013-09-15 00:37:00,Arena Green / SAP Center,14,2013-09-17 18:28:00,San Pedro Square,6,650,Customer,95113
