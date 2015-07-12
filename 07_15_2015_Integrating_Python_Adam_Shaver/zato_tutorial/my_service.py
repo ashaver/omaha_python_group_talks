@@ -1,7 +1,10 @@
+
+# [AKS] Taken directly from the tutorial, with additional comments
 from zato.server.service import Service
 
 class GetClientDetails(Service):
-    def handle(self): # The only method that *has* to be defined. This is the event-triggered entry point.
+    def handle(self): # [AKS] The only method that *has* to be defined. 
+        # [AKS] This is the event-triggered entry point. Note the data structure uses a request.payload and reponse
         self.logger.info('Request: {}'.format(self.request.payload))
         self.logger.info('Request type: {}'.format(type(self.request.payload)))
 
@@ -16,6 +19,7 @@ class GetClientDetails(Service):
         cust = response.data
 
         # .. and last payment's details
+        # Sending this off to another server
         response = payments.conn.send(self.cid, self.request.payload)
         last_payment = response.data
 
@@ -29,7 +33,7 @@ class GetClientDetails(Service):
         response['last_payment_amount'] = last_payment['AMOUNT']
 
         self.logger.info('Response: {}'.format(response))
-        import rpdb2; rpdb2.start_embedded_debugger('12345') # doesnt' work....
+        #import rpdb2; rpdb2.start_embedded_debugger('12345') # doesnt' work....
         
         # And return response to the caller
         self.response.payload = response
